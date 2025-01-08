@@ -14,7 +14,7 @@ class TrimeshShapeModelTestCase(unittest.TestCase):
         np.seterr('raise')
 
     def test_get_visibility_matrix_for_sphere(self):
-        for TrimeshShapeModel, npz_filename in it.product(
+        for TrimeshShapeModel, npz_filename in it.prod(
                 flux.shape.trimesh_shape_models,
                 common.sphere_npz_filenames):
             with self.subTest(
@@ -60,7 +60,7 @@ class TrimeshShapeModelTestCase(unittest.TestCase):
                 self.assertTrue((vis == vis_gt).all())
 
     def test_is_occluded_for_sphere(self):
-        for TrimeshShapeModel, npz_filename in it.product(
+        for TrimeshShapeModel, npz_filename in it.prod(
                 flux.shape.trimesh_shape_models,
                 common.sphere_npz_filenames):
             with self.subTest(
@@ -84,7 +84,7 @@ class TrimeshShapeModelTestCase(unittest.TestCase):
                 self.assertTrue((occluded == occluded_gt).all())
 
     def test_get_visibility_and_get_visibility_1_to_N_are_equivalent(self):
-        for TrimeshShapeModel, npz_filename in it.product(
+        for TrimeshShapeModel, npz_filename in it.prod(
                 flux.shape.trimesh_shape_models,
                 common.sphere_npz_filenames):
             with self.subTest(
